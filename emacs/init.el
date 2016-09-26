@@ -19,6 +19,8 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
 
 ;; ido-vertical-mode
 
@@ -36,6 +38,8 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-basic-offset 2)
 (setq-default indent-tabs-mode nil)
+(setq json-reformat:indent-width 2)
+(setq js-indent-level 2)
 
 ;; projectile
 
@@ -44,6 +48,10 @@
 (projectile-global-mode)
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
+
+;; i-search
+
+(setq isearch-allow-scroll t)
 
 ;; auto-complete
 
@@ -70,6 +78,21 @@
 ;; with-editor
 
 (require 'with-editor)
+
+;; ag
+
+(require 'ag)
+
+(setq ag-highlight-search t)
+
+;; string inflection
+
+(require 'string-inflection)
+
+(global-set-key (kbd "C-c i") 'string-inflection-cycle)
+(global-set-key (kbd "C-c C") 'string-inflection-camelcase)        ;; Force to CamelCase
+(global-set-key (kbd "C-c L") 'string-inflection-lower-camelcase)  ;; Force to lowerCamelCase
+(global-set-key (kbd "C-c J") 'string-inflection-java-style-cycle) ;; Cycle through Java styles
 
 ;; tide
 
