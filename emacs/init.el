@@ -1,14 +1,35 @@
 (let ((default-directory (file-name-directory load-file-name)))
-   (add-to-list 'load-path (file-truename "vendor")))
+  (add-to-list 'load-path (file-truename "vendor"))
+  (load-file (file-truename "files/key-bindings.el")))
 
-(setq next-screen-context-lines 30)
+;; general emacs
+
 (tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(show-paren-mode 1)
+(setq blink-matching-paren-distance nil)
+(setq next-screen-context-lines 30)
+(setq confirm-kill-emacs 'y-or-n-p)
+(setq undo-limit 100000)
+(setq read-file-name-completion-ignore-case 't)
+(setq read-buffer-completion-ignore-case 't)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; shell
 
 (setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
 (setq shell-file-name explicit-shell-file-name)
 (add-to-list 'exec-path "C:/cygwin64/bin")
+
+;; dired
+
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
+(add-hook 'dired-mode-hook
+	  (function (lambda () (dired-omit-mode 1))))
+(add-hook 'dired-load-hook
+	  (function (lambda () (load "dired-x"))))
+(setq dired-isearch-filenames 1)
 
 ;; ido
 
@@ -47,7 +68,7 @@
 
 (projectile-global-mode)
 (setq projectile-indexing-method 'alien)
-(setq projectile-enable-caching t)
+(setq projectile-enable-caching nil)
 
 ;; i-search
 
@@ -66,11 +87,6 @@
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
                   ; when Smex is auto-initialized on its first run.
 
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
 ;; dash
 
 (require 'dash)
@@ -88,11 +104,6 @@
 ;; string inflection
 
 (require 'string-inflection)
-
-(global-set-key (kbd "C-c i") 'string-inflection-cycle)
-(global-set-key (kbd "C-c C") 'string-inflection-camelcase)        ;; Force to CamelCase
-(global-set-key (kbd "C-c L") 'string-inflection-lower-camelcase)  ;; Force to lowerCamelCase
-(global-set-key (kbd "C-c J") 'string-inflection-java-style-cycle) ;; Cycle through Java styles
 
 ;; tide
 
@@ -127,8 +138,6 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 (setq ace-jump-mode-case-fold t)
 
@@ -142,13 +151,6 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-
-;; window management keybindings
-
-(define-key global-map (kbd "<f1>") 'split-window-below)
-(define-key global-map (kbd "<f2>") 'split-window-right)
-(define-key global-map (kbd "<f3>") 'other-window)
 
 ;; melpa
 
@@ -160,9 +162,6 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
-;; magit
-
-(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; theme
 
@@ -178,3 +177,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
