@@ -130,7 +130,7 @@
 ;; you can select the key you prefer to
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
-
+(setq ace-jump-mode-case-fold t)
 
 ;; 
 ;; enable a more powerful jump back function from ace jump mode
@@ -143,6 +143,12 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;; window management keybindings
+
+(define-key global-map (kbd "<f1>") 'split-window-below)
+(define-key global-map (kbd "<f2>") 'split-window-right)
+(define-key global-map (kbd "<f3>") 'other-window)
 
 ;; melpa
 
