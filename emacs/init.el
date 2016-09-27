@@ -8,6 +8,7 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode 1)
+(setq redisplay-dont-pause t)
 (setq blink-matching-paren-distance nil)
 (setq next-screen-context-lines 30)
 (setq confirm-kill-emacs 'y-or-n-p)
