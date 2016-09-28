@@ -69,7 +69,7 @@
 
 (projectile-global-mode)
 (setq projectile-indexing-method 'alien)
-(setq projectile-enable-caching nil)
+(setq projectile-enable-caching t)
 
 ;; i-search
 
