@@ -106,6 +106,10 @@
 
 (require 'string-inflection)
 
+;; kill-ring-ido
+
+(require 'kill-ring-ido)
+
 ;; tide
 
 (defun setup-tide-mode ()
