@@ -26,6 +26,6 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; kill-ring-ido
+;; browse-kill-ring
 
-(global-set-key (kbd "M-y") 'kill-ring-ido)
+(global-set-key (kbd "M-y") 'browse-kill-ring)

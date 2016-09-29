@@ -107,9 +107,9 @@
 
 (require 'string-inflection)
 
-;; kill-ring-ido
+;; browse-kill-ring
 
-(require 'kill-ring-ido)
+(require 'browse-kill-ring)
 
 ;; tide
 
