@@ -20,6 +20,8 @@
 (setq read-buffer-completion-ignore-case 't)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(setq frame-title-format "%b")
+
 ;; shell
 
 (setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
