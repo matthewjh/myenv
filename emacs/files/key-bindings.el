@@ -22,6 +22,12 @@
 (define-key global-map (kbd "<f2>") 'split-window-right)
 (define-key global-map (kbd "<f3>") 'other-window)
 
+;; line movement
+(define-key global-map (kbd "M-2") 'next-line)
+(define-key global-map (kbd "M-1") 'previous-line)
+(define-key global-map (kbd "M-`") 'beginning-of-buffer)
+(define-key global-map (kbd "M-3") 'end-of-buffer)
+
 ;; magit
 
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -29,3 +35,17 @@
 ;; browse-kill-ring
 
 (global-set-key (kbd "M-y") 'browse-kill-ring)
+
+(require 'org)
+(define-key org-mode-map (kbd "M-c t") 'org-insert-todo-heading)
+(define-key org-mode-map (kbd "M-c h") 'org-insert-heading)
+(define-key org-mode-map (kbd "M-c d") 'org-previous-visible-heading)
+(define-key org-mode-map (kbd "M-c f") 'org-next-visible-heading)
+
+;; ido
+
+(defun bind-ido-keys ()
+  (define-key ido-completion-map (kbd "M-2") 'ido-next-match) 
+  (define-key ido-completion-map (kbd "M-1") 'ido-prev-match))
+
+(add-hook 'ido-setup-hook #'bind-ido-keys)

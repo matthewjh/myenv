@@ -1,6 +1,8 @@
 (let ((default-directory (file-name-directory load-file-name)))
   (add-to-list 'load-path (file-truename "vendor"))
   (add-to-list 'load-path (file-truename "vendor/slime-2.18"))
+  (add-to-list 'load-path (file-truename "vendor/org-mode/lisp"))
+  (add-to-list 'load-path (file-truename "vendor/org-mode/contrib/lisp"))
   (load-file (file-truename "files/key-bindings.el"))
   (setq common-lisp-hyperspec-root (file-truename "../lisp/HyperSpec/")
         common-lisp-hyperspec-symbol-table (file-truename "../lisp/HyperSpec/Data/Map_Sym.txt")))
@@ -114,6 +116,11 @@
 ;; browse-kill-ring
 
 (require 'browse-kill-ring)
+
+;; org
+
+(require 'org)
+(setq org-hide-leading-stars t)
 
 ;; tide
 
