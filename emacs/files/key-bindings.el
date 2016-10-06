@@ -39,8 +39,8 @@
 (require 'org)
 (define-key org-mode-map (kbd "M-c t") 'org-insert-todo-heading)
 (define-key org-mode-map (kbd "M-c h") 'org-insert-heading)
-(define-key org-mode-map (kbd "M-c d") 'org-previous-visible-heading)
-(define-key org-mode-map (kbd "M-c f") 'org-next-visible-heading)
+(define-key org-mode-map (kbd "M-c M-v") 'org-move-subtree-up)
+(define-key org-mode-map (kbd "M-c M-f") 'org-move-subtree-down)
 
 ;; ido
 

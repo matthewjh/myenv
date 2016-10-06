@@ -41,6 +41,7 @@
 
 ;; ido
 
+(require 'ido)
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
