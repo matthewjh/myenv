@@ -41,6 +41,7 @@
     (setq-default dired-omit-files-p t) ; Buffer-local variable
 (setq dired-isearch-filenames 1)
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; ido
 
