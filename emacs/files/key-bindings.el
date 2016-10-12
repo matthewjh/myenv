@@ -22,6 +22,10 @@
 (define-key global-map (kbd "<f2>") 'split-window-right)
 (define-key global-map (kbd "<f3>") 'other-window)
 
+;; frame management keybindings
+
+(define-key global-map (kbd "<f4>") 'make-frame)
+
 ;; line movement
 (define-key global-map (kbd "M-2") 'next-line)
 (define-key global-map (kbd "M-1") 'previous-line)
