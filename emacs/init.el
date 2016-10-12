@@ -34,10 +34,13 @@
 
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 (add-hook 'dired-mode-hook
-	  (function (lambda () (dired-omit-mode 1))))
+	  (function (lambda () (setq dired-omit-mode 1))))
 (add-hook 'dired-load-hook
-	  (function (lambda () (load "dired-x"))))
+	  (function (lambda () (require 'dired-x))))
+(require 'dired-x)
+    (setq-default dired-omit-files-p t) ; Buffer-local variable
 (setq dired-isearch-filenames 1)
+(setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 
 ;; ido
 
