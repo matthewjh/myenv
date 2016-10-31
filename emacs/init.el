@@ -126,6 +126,13 @@
 
 (require 'org)
 (setq org-hide-leading-stars t)
+(setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "GY(g)" "DONE(d)")))
+(setq org-agenda-files '("u:/notes/todo.org" "u:/notes/notes.org"))
+(setq org-cycle-separator-lines -1)
+(setq org-default-notes-file "u:/notes/notes.org")
+(define-key global-map "\C-cc" 'org-capture)
+(push '("WAITING" . "yellow") org-todo-keyword-faces)
+(push '("GY" . (:foregound "grey" :weight bold)) org-todo-keyword-faces)
 
 ;; tide
 
@@ -197,6 +204,10 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
+
+
+;; faces
+(custom-set-faces '(org-link ((t (:foreground "#a8c6ff" :underline t)))))
 
 
 ;; theme
