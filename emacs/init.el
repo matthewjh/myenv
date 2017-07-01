@@ -3,6 +3,7 @@
   (add-to-list 'load-path (file-truename "vendor/slime-2.18"))
   (add-to-list 'load-path (file-truename "vendor/org-mode/lisp"))
   (add-to-list 'load-path (file-truename "vendor/org-mode/contrib/lisp"))
+  (add-to-list 'load-path (file-truename "vendor/editorconfig-emacs"))
   (load-file (file-truename "files/key-bindings.el"))
   (setq common-lisp-hyperspec-root (file-truename "../lisp/HyperSpec/")
         common-lisp-hyperspec-symbol-table (file-truename "../lisp/HyperSpec/Data/Map_Sym.txt")))
@@ -23,6 +24,10 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq frame-title-format "%b")
+
+;; cvs
+(require 'pcvs)
+(cvs-flags-set 'cvs-cvs-flags 0 (cons "-z9" (cvs-flags-query 'cvs-cvs-flags nil 'noquery)))
 
 ;; shell
 
@@ -134,6 +139,8 @@
 (push '("WAITING" . "yellow") org-todo-keyword-faces)
 (push '("GY" . (:foregound "grey" :weight bold)) org-todo-keyword-faces)
 
+(setq tab-width 2)
+
 ;; tide
 
 (defun setup-tide-mode ()
@@ -194,6 +201,9 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
+;; editor-config
+(require 'editorconfig)
+(editorconfig-mode 1)
 
 ;; melpa
 
